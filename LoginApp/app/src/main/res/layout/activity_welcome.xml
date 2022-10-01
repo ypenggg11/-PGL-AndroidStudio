@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".Welcome">
+
+    <Button
+        android:id="@+id/exitButton"
+        android:layout_width="140dp"
+        android:layout_height="70dp"
+        android:layout_marginTop="55dp"
+        android:backgroundTint="#D691EF"
+        android:shadowColor="#E9D4FF"
+        android:shadowRadius="12"
+        android:text="@string/exit_button"
+        android:textColor="#F3E5FA"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/welcomeTextView" />
+
+    <TextView
+        android:id="@+id/welcomeTextView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="184dp"
+        android:fontFamily="@font/roboto"
+        android:lineSpacingExtra="0sp"
+        android:shadowColor="#C143EF"
+        android:shadowRadius="8"
+        android:textAlignment="center"
+        android:textColor="#FAF3FD"
+        android:textSize="34sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.51"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>

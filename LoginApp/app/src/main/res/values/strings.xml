@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">LoginApp</string>
+    <string name="title_text_view">Login_&#160;</string>
+    <string name="username_edit_text">Username</string>
+    <string name="password_edit_text">Password</string>
+    <string name="login_button">Verify_</string>
+    <string name="exit_button">Exit_</string>
+</resources>

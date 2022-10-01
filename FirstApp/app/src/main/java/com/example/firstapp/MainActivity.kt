@@ -30,6 +30,7 @@ class MainActivity : AppCompatActivity() {
 
         //Listener que se activará al darle click
         extractButton.setOnClickListener {
+
             //.text será equivalente a .getText() en java si se usa para almacenarse (var/val)
             val userInput = userInputEditText.text.toString()
             var initialPos = 0
