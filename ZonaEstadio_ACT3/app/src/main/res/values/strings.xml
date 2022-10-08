@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">ZonaEstadio_ACT3</string>
+    <string name="info_textView">Seleccione <u>UNA</u> zona de las siguientes: </string>
+    <string name="info_textView_T">Elija <u>UNA</u> zona de las siguientes: </string>
+    <string name="zona1_radioButton">Grada Naciente</string>
+    <string name="zona2_radioButton">Grada Curva</string>
+    <string name="zona3_radioButton">Grada Sur</string>
+    <string name="zona4_radioButton">Tribuna</string>
+    <string name="abonado_checkBox">Soy abonado</string>
+    <string name="abanado_checkBox_True"><u><b>SI</b></u> eres abonado.</string>
+    <string name="abonado_checkBox_False"><u><b>NO</b></u> eres abonado.</string>
+</resources>
