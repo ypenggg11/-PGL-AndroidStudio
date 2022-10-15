@@ -1,3 +1,14 @@
 <resources>
     <string name="app_name">ViewBinding_ACT4</string>
+    <string name="title_textV">View Binding y Spinner</string>
+    <string-array name="proLang">
+        <item>Java</item>
+        <item>C</item>
+        <item>C++</item>
+        <item>C#</item>
+        <item>Kotlin</item>
+        <item>Python</item>
+        <item>JavaScript</item>
+    </string-array>
+    <string name="exitButton">Salir</string>
 </resources>
