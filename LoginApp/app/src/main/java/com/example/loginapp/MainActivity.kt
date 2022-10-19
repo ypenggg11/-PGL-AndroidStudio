@@ -1,11 +1,14 @@
 package com.example.loginapp
 
+import android.app.Activity
 import android.content.Intent
+import android.content.pm.PackageManager
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.app.ActivityCompat
 
 
 class MainActivity : AppCompatActivity() {
@@ -36,7 +39,16 @@ class MainActivity : AppCompatActivity() {
                 val welcomeIntent = Intent(this@MainActivity, Welcome::class.java)
 
                 welcomeIntent.putExtra("username", username)
-                //                    welcomeIntent.putExtra("password",password)
+                //welcomeIntent.putExtra("password",password)
+
+                //Verifica si ese permiso está activado (primero se tuvo q asignar en AndroidManifest.xml)
+                if (ActivityCompat.checkSelfPermission(this,android.Manifest.permission.CAMERA)==PackageManager.PERMISSION_GRANTED) {
+                   //En caso afirmativo, muestra un toast.
+                    Toast.makeText(this,"La app tiene permisos para la cámara",Toast.LENGTH_LONG).show()
+                }else{
+                    //En caso negativo, solicita el permiso.
+                    ActivityCompat.requestPermissions(this, arrayOf(android.Manifest.permission.CAMERA),1)
+                }
 
                 startActivity(welcomeIntent)
             } else {

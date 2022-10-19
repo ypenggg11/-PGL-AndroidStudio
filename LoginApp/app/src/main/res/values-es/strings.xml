@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--Otro res de strings para la traducción del idioma del programa-->
+    <string name="app_name">Aplicación de Login</string>
+    <string name="title_text_view">Login_&#160;</string>
+    <string name="username_edit_text">Nombre de usuario</string>
+    <string name="password_edit_text">Contraseña</string>
+    <string name="login_button">Verificar_</string>
+    <string name="exit_button">Salir_</string>
+</resources>
