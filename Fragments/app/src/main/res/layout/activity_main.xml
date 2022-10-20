@@ -33,13 +33,12 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="1"
-        android:entries="@array/fragText_spinner"
         tools:ignore="TouchTargetSizeCheck" />
 
     <FrameLayout
         android:id="@+id/fragmentsFrameL"
         android:layout_width="match_parent"
-        android:layout_height="550dp">
+        android:layout_height="600dp">
 
     </FrameLayout>
 </LinearLayout>

@@ -5,7 +5,6 @@ import android.os.Bundle
 import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
-import com.example.viewbinding_act4.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
 

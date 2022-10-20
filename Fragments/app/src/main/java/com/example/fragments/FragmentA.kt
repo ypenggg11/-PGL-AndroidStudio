@@ -11,6 +11,8 @@ import android.widget.Toast
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
+
+//Cambiamos el valor del argumento según el 'key' pasado por argumento
 private const val ARG_PARAM1 = "texto"
 private const val ARG_PARAM2 = "param2"
 
@@ -21,12 +23,14 @@ private const val ARG_PARAM2 = "param2"
  */
 class FragmentA : Fragment() {
     // TODO: Rename and change types of parameters
+    //Cambiamos el nombre de nuestra variable para que sea más legible
     private var texto: String? = null
     private var param2: String? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
+            //Obtenemos del Bundle, a partir del 'key' el String que pasamos como argumento
             texto = it.getString(ARG_PARAM1)
             param2 = it.getString(ARG_PARAM2)
         }
@@ -40,15 +44,20 @@ class FragmentA : Fragment() {
         // Inflate the layout for this fragment
         val fragView = inflater.inflate(R.layout.fragment_a, container, false)
 
+        //Buscamos el componente con su respectivo id dentro del view de nuestro fragment
         val frag1TextV = fragView.findViewById<TextView>(R.id.fragment1TextV)
 
+        //Listener del TextView
         frag1TextV.setOnClickListener {
+            //Mostramos un Toast
             Toast.makeText(activity,"Has hecho click en el Text View del Fragmento 1", Toast.LENGTH_LONG).show()
         }
 
         return fragView
     }
 
+    //Al crearse el fragment, se cambia el texto del TextView por el texto que obtuvimos como
+    //argumento del Bundle
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         view.findViewById<TextView>(R.id.fragment1TextV).text = texto
