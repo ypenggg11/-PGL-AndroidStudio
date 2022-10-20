@@ -1,0 +1,121 @@
+*VER FUNCIÓN DEL CÓDIGO COMENTADO -> IR A LA CARPETA CUYO NOMBRE SEA '[NOMBRE]'
+
+*1.-[FirstApp]=================================================================================================================\\
+
+1.a.- Buscar componente por ID (forma 1)
+Acceder a su texto -> al final '.text', funciona como getter y setter (get -> .toString())
+
+->  findViewById<TextView>(R.id.textViewSubString)
+
+*2.-[ViewBinding_ACT4]=========================================================================================================\\
+
+2.a.- Buscar componente por ID (forma 2)
+Añadir en 'build.gradle' -> android{ 'aquí' } -> viewBinding{ enabled = true }
+
+->  private lateinit var viewBinding: ActivityMainBinding (fuera de onCreate())
+->  viewBinding = ActivityMainBinding.inflate(layoutInflater) (dentro de onCreate())
+->  setContentView(viewBinding.root)
+->  val componente = viewBinding.idDelComponente
+
+2.b.- String-array en strings.xml para Spinners
+
+->  <string-array name="nombre"><item>dato</item><item>...</item></string-array>
+
+2.c.- Cargar string-array desde strings.xml al spinner mediante código
+Opción gráfico: Spinner -> Common Attributes -> Entries -> @array/nombreDelString-array
+
+->  val arrayAdap = ArrayAdapter.createFromResource(this,R.array.nombreDelString-array,
+            com.google.android.material.R.layout.support_simple_spinner_dropdown_item)
+->  arrayAdap.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+->  idSpinner.adapter = arrayAdap
+
+*3.-[ZonaEstadio_ACT3]=========================================================================================================\\
+
+3.a.- Alertas (getText funciona con HTML, getString NO)
+
+->  val alert = AlertDialog.Builder(this).create()
+->  alert.setMessage(getText(R.string.etiquetaDelStringsXML)).show()
+
+*4.-[LoginApp]=================================================================================================================\\
+
+4.a.- Mensaje Toast
+
+->  Toast.makeText(this,"Mensaje a mostrar",Toast.LENGTH_LONG).show()
+
+4.b.- Usar permisos
+//Añadir en AndroidManifest.xml: (name="tipo de permiso")
+
+->  <uses-permission android:name="android.permission.CAMERA"/>
+
+4.c.- Verifica los permisos (boolean)
+En MainActivity u otra clase (permission.tipo de permiso)
+this||applicationContext||activity
+
+->  ActivityCompat.checkSelfPermission(this,android.Manifest.permission.CAMERA)==PackageManager.PERMISSION_GRANTED
+
+4.d.- Solicita permisos
+En MainActivity u otra clase (permission.tipo de permiso)
+
+->  ActivityCompat.requestPermissions(this, arrayOf(android.Manifest.permission.CAMERA),1)
+
+4.e.- Pasar de una Activity a otra + pasar datos a otra Activity
+(this@activityActual, otraActivity::class.java)
+
+->  val intent = Intent(this@MainActivity, Welcome::class.java)
+->  intent.putExtra("key", datoAPasar)
+->  startActivity(intent)
+
+4.f.- Obtener datos en una Activity pasados desde otra
+
+->  val bundle = intent.extras
+->  val datoPasado:String? = bundle?.getString("key")
+
+4.g.- Salir del Activity
+
+->  finish()
+
+*5.-[Fragments]================================================================================================================\\
+
+5.a.- Crear instancia de nuestro Fragment + pasarle argumentos
+
+->  val frag = NombreDeNuestraClaseFragment()
+->  val datosAPasar = Bundle()
+->  datosAPasar.putString("key", dato) (Bundle trabaja con HashMaps)
+->  frag.arguments = datosAPasar
+
+5.b.- Cambiar el Fragment visible del FrameLayout (los fragments van dentro de frameLayouts)
+
+->  val fragment = supportFragmentManager.beginTransaction()
+->  fragment.replace(R.id.NombreDelFrameLayout, frag) (val frag en 5.a.-)
+->  fragment.commit()
+
+5.c.- Usar los argumentos que se pasaron del Activity al Fragment
+Cambiar -> Arriba del todo -> private const val ARG_PARAM... = "key"
+Cambiar -> Poco más abajo -> private var nombreDato: String? = null
+Cambiar -> OnCreate() -> nombreDato = it.getString(ARG_PARAM...)
+(onViewCreated() = ejecuta su contenido una vez el onCreatedView() esté creado,para evitar errores)
+
+-> view.findViewById<Tipo>(R.id.IdComponente).text = nombreDato
+
+5.d.- Usar findViewById en Fragments
+(onCreateView() = usar solo para crear la vista, .findViewById usar en onViewCreated())
+
+->  val fragView = inflater.inflate(R.layout.IdDelFragmento, container, false)
+->  fragView.findViewById<>()
+
+EXTRA.- Listeners==============================================================================================================\\
+
+->  botones/textView/... = .setOnClickListener {accionARealizar}
+
+->  radioGroup/checkBox/... = .setOnCheckedChangeListener {tipo, selected -> accionARealizar}
+
+->  spinner... = .onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+override fun onItemSelected(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long) {
+//"p0!!.getItemAtPosition(p2)" = devuelve el item seleccionado en String
+}
+override fun onNothingSelected(p0: AdapterView<*>?){}}
+
+
+
+
+
