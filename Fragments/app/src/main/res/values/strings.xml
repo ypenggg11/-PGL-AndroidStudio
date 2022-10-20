@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">Fragments</string>
+    <string name="fragment1_text">Fragmento 1</string>
+    <string name="fragment2_text">Fragmento 2</string>
+    <string name="fragment1_button">Fragmento 1</string>
+    <string name="fragment2_button">Fragmento 2</string>
+    <string-array name="fragText_spinner">
+        <item>Iniciar sesión</item>
+        <item>Registrarse</item>
+    </string-array>
 </resources>
