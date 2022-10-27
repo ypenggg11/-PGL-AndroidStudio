@@ -103,6 +103,75 @@ Cambiar -> OnCreate() -> nombreDato = it.getString(ARG_PARAM...)
 ->  val fragView = inflater.inflate(R.layout.IdDelFragmento, container, false)
 ->  fragView.findViewById<>()
 
+*6.-[RecyclerView]=============================================================================================================\\
+
+ESTRUCTURA DEL RECYCLER VIEW *(: = hereda de...)
+MainActivity.kt -> Componente RecyclerView -> Clase adapter: RecyclerView.Adapter<'ViewHolder'>() ->
+-> Clase viewHolder: RecyclerView.ViewHolder('View') -> View = cada item del Recycler, que se contruye con ->
+-> listitem_nombre.xml -> Clase adapter -> (override) onCreateViewHolder():'ViewHolder' -> Crea item (View) -> 
+-> (override) onBindViewHolder() -> Llama a método 'bind' de nuestro 'ViewHolder' -> bind() asigna valores a ->
+-> los componentes de la vista listitem_nombre.xml con los datos del data class -> MainActivity.kt crea array ->
+-> de objetos -> Crea instancia de Clase Adapter -> Asigna layout a componente Recycler -> Asigna nuestra clase -> 
+-> Adapter a nuestro Recycler.
+
+Pasos para implementar un RecyclerView:
+
+6.1.- Añadir en 'build.gradle' -> implementation 'androidx.recyclerview:recyclerview:1.2.1'
+
+6.2.- Añadir en el componente en algun .xml -> <androidx.recyclerview.widget.RecyclerView .../>
+
+6.3.- Crear un fichero listitem_'nombre'.xml en 'res/layout' que definirá el View de cada item dentro
+	de nuestro RecyclerView.
+
+6.4.- Creamos una data class con los posibles datos de cada uno de nuestros items.
+-> data class Nombre(val dato1: Tipo, val dato2: Tipo...)
+
+6.5.- Creamos nuestra clase ViewHolder que hereda de Recycler.ViewHolder() y que contiene una funcion bind().
+-> class nombreViewHolder(val item: View): RecyclerView.ViewHolder(item) {
+	fun bindDataClass(dataClass: DataClass) {
+		'Asignar valores como: texto, a los componentes mediante los id de item -> item.findViewById...'
+	}
+}
+
+6.6.- Creamos nuestra clase Adapter, que hereda de Recycler.Adapter<NuestroViewHolder>(), contiene 3 funciones override.
+-> class nombreAdapter(private val datos: Array<DataClass>, private val clickListener: (DataClass) -> Unit): 
+RecyclerView.Adapter<NuestroViewHolder>() 
+
+6.7- Añadimos fun -> onCreateViewHolder [Construye un View llamado item a partir de nuestro .xml]
+-> override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): NuestroViewHolder {
+        val item = LayoutInflater.from(parent.context).inflate(R.layout.listitem_nombre,parent,false) as LinearLayout
+        return NuestroViewHolder(item)
+    }
+
+6.8.- Añadimos fun onBindViewHolder [Llama al método bind de nuestro ViewHolder y le pasa el objeto actual 
+de nuestro dataClass, también añade un listener a nuestro item]
+-> override fun onBindViewHolder(holder: NuestroViewHolder, position: Int) {
+        val dataClass = datos[position]
+        holder.bindDataClass(dataClass)
+
+        holder.item.setOnClickListener {clickListener(dataClass)}
+    }
+
+6.9.- Añadimos fun getItemCount [Devuelve el tamaño actual de nuestra lista de objetos DataClass]
+-> override fun getItemCount(): Int = datos.size
+
+6.10.- MainActivity.kt -> buscamos nuestro componente RecyclerView y creamos un array de nuestro DataClass
+-> recyclerView = viewBinding.recyclerView
+-> val datos = Array('size') {it -> DataClass('parametros')}
+
+6.11.- Asignamos un layout (el mismo que nuestro listitem.xml) a nuestro RecyclerView
+-> recyclerView.layoutManager = LinearLayoutManager(this,LinearLayoutManager.VERTICAL,false)
+
+6.12.- Creamos la instancia de nuestra Clase Adapter y se lo asignamos al RecyclerView
+-> val adaptador = nombreAdapter(datos) {
+           'código a ejecutar del listener'
+        }
+-> recyclerView.adapter = adaptador
+
+6.13.- En caso de querer decorar nuestros items, usar:
+-> recyclerView.addItemDecoration(DividerItemDecoration(this,DividerItemDecoration.VERTICAL))
+
+
 EXTRA.- Listeners==============================================================================================================\\
 
 ->  botones/textView/... = .setOnClickListener {accionARealizar}

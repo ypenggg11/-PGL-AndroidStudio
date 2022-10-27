@@ -9,18 +9,18 @@ import androidx.recyclerview.widget.RecyclerView
 
 //Clase Adaptador que acepta datos como un Array de objetos Jugador, y un listener para cada Jugador.
 //El listener, habrá de definir su contenido al crear una instancia de esta clase.
-//Esta clase hereda de RecyclerView.Adapter<Clase ViewHolder (en este caso está interno)>()
+//Esta clase hereda de RecyclerView.Adapter<Clase ViewHolder (en este caso, el nuestro está interno)>()
 class AdaptadorJugadores(private val datos: Array<Jugador>, private val clickListener: (Jugador) -> Unit): RecyclerView.Adapter<AdaptadorJugadores.JugadoresViewHolder>() {
 
-    //Clase ViewHolder, que representa cada item dentro de nuestro RecyclerView
-    //Esta clase hereda de RecyclerView.ViewHolder(vista (View))
+    //Clase ViewHolder, que necesitará nuestra clase Adaptador
+    //Esta clase hereda de RecyclerView.ViewHolder(vista de cada item (View))
     class JugadoresViewHolder(val item: View): RecyclerView.ViewHolder(item) {
         //Busca en la vista (View) pasado como parámetro, el componente por Id.
         val nombreTextV = item.findViewById<TextView>(R.id.nombreTextV)
         val edadTextView = item.findViewById<TextView>(R.id.edadTextV)
 
         //Relaciona nuestros datos (lista de Jugador) con la vista.
-        // //(Los componentes que cargamos en el ViewHolder)
+        //(Los componentes que cargamos en el ViewHolder)
         fun bindJugador(jugador: Jugador) {
             nombreTextV.text = jugador.nombre
             edadTextView.text = jugador.edad.toString()

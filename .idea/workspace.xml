@@ -9,8 +9,9 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9683d845-5561-4bcc-afa5-82877ce863cc" name="Changes" comment="New Activity &amp; Toast ejercicio hecho">
-      <change afterPath="$PROJECT_DIR$/ut1_CheatSheet.txt" afterDir="false" />
+    <list default="true" id="9683d845-5561-4bcc-afa5-82877ce863cc" name="Changes" comment="CheatSheet de todas las actividades añadido">
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_19_10_2022_8_31_[Changes]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_19_10_2022_8_31__Changes_.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -44,7 +45,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="RunOnceActivity.cidr.known.project.marker" value="true" />
     <property name="cidr.known.project.marker" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/RecyclerView" />
     <property name="settings.editor.selected.configurable" value="project.propVCSSupport.DirectoryMappings" />
   </component>
   <component name="RunManager">
@@ -122,7 +123,14 @@
       <option name="project" value="LOCAL" />
       <updated>1666169091242</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="CheatSheet de todas las actividades añadido">
+      <created>1666286819329</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1666286819329</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -142,6 +150,7 @@
       <path value="$PROJECT_DIR$" />
     </ignored-roots>
     <MESSAGE value="PGL Fragments a falta de hacer" />
-    <option name="LAST_COMMIT_MESSAGE" value="PGL Fragments a falta de hacer" />
+    <MESSAGE value="CheatSheet de todas las actividades añadido" />
+    <option name="LAST_COMMIT_MESSAGE" value="CheatSheet de todas las actividades añadido" />
   </component>
 </project>
