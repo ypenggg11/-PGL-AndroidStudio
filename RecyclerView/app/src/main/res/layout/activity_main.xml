@@ -22,6 +22,7 @@
         android:textSize="18sp"
         android:textStyle="bold" />
 
+    <!--Add RecyclerView component-->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
         android:layout_width="match_parent"
