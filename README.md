@@ -1,6 +1,6 @@
 # -PGL-AndroidStudio
 
-En los archivos CheatSheet.txt contendrán todas las funciones usadas en PGL, separados por actividades (las de la misma carpeta).
+En los archivos CheatSheet.txt contendrán todas las funciones usadas en PGL, separados por unidades de trabajo, y dentro de cada unidad, divididos por actividades (las de esta misma carpeta).
 Su estructura se divide en:
 
 Nombre de la actividad.
