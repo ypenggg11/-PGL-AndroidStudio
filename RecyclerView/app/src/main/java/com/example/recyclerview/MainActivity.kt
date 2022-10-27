@@ -4,10 +4,11 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
 import androidx.recyclerview.widget.DividerItemDecoration
-import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.recyclerview.adapter.JugadoresAdapter
 import com.example.recyclerview.databinding.ActivityMainBinding
+import com.example.recyclerview.dataClasses.Jugador
 
 class MainActivity : AppCompatActivity() {
 
@@ -24,11 +25,11 @@ class MainActivity : AppCompatActivity() {
         recyclerView = viewBinding.recyclerView
 
         //Creamos un array de 30 objetos de clase Jugador
-        val datos = Array(30) {it -> Jugador("Jugador $it",it)}
+        val datos = Array(30) {it -> Jugador("Jugador $it",it) }
 
         //Crea una instancia del objeto Adaptador, pasandole los datos, y
         //el código que ejecuta el listener (clickListener)
-        val adaptador = AdaptadorJugadores(datos) {
+        val adaptador = JugadoresAdapter(datos) {
             Toast.makeText(this,"Has pulsado el -> ${it.nombre}",Toast.LENGTH_LONG).show()
         }
 
