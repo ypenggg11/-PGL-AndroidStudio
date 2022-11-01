@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
 import androidx.recyclerview.widget.DividerItemDecoration
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.recyclerview.adapter.JugadoresAdapter
@@ -28,10 +29,10 @@ class MainActivity : AppCompatActivity() {
 
         //Asigna un layout al recyclerView (con layoutManager), en este caso, le asigna un
         //LinearLayout en este contexto, un LinearLayout vertical.
-        recyclerView.layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
+       recyclerView.layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
 
         //Ejemplo de asignar un GridLayout
-        // recyclerView.layoutManager = GridLayoutManager(this,4)
+        recyclerView.layoutManager = GridLayoutManager(this,4)
 
         //Creamos un array de 30 objetos de clase Jugador
         val datos = Array(30) { it -> Jugador("Jugador $it", it) }
