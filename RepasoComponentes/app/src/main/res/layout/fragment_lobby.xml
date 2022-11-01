@@ -96,7 +96,7 @@
             <RadioGroup
                 android:id="@+id/gendertButtonG"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
+                android:layout_height="match_parent">
 
                 <RadioButton
                     android:id="@+id/radioButton"
@@ -118,9 +118,9 @@
             </RadioGroup>
 
             <Spinner
-                android:id="@+id/spinner"
+                android:id="@+id/locationSpinner"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_weight="1" />
 
         </LinearLayout>
@@ -132,17 +132,17 @@
             android:background="?android:attr/listDivider" />
 
         <CheckBox
-            android:id="@+id/checkBox"
+            android:id="@+id/residentCheckB"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="CheckBox" />
+            android:text="ImResident" />
 
         <Button
-            android:id="@+id/button"
+            android:id="@+id/confirmButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Button" />
+            android:text="Confirm" />
 
     </LinearLayout>
 </FrameLayout>
