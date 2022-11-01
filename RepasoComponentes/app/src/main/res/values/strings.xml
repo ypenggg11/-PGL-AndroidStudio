@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">RepasoComponentes</string>
+    <string name="about_me_button">About me</string>
+    <string name="lobby_button">Lobby</string>
+    <string name="app_name_tv"><u>AndroidStudio</u> components.</string>
+    <string name="app_version_tv">v1.0</string>
+    <string name="developer_tv">By Peng You</string>
 </resources>
