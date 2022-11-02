@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/teal_200"
+    tools:context=".MainActivity">
+
+    <EditText
+        android:id="@+id/emailEditT"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="@string/email_et"
+        android:inputType="textEmailAddress" />
+
+    <EditText
+        android:id="@+id/datosEditT"
+        android:layout_width="match_parent"
+        android:layout_height="476dp"
+        android:ems="10"
+        android:gravity="start|top"
+        android:hint="Datos a grabar/recuperar:"
+        android:inputType="textMultiLine|textPersonName" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+        <Button
+            android:id="@+id/grabarButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/grabar_button"/>
+        <Button
+            android:id="@+id/recuperarButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/recuperar_button"/>
+    </LinearLayout>
+
+</LinearLayout>
