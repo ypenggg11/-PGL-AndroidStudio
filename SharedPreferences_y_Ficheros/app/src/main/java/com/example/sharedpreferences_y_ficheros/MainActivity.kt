@@ -1,55 +1,82 @@
 package com.example.sharedpreferences_y_ficheros
 
-import android.content.Context
+import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.EditText
 import android.widget.Toast
 import com.example.sharedpreferences_y_ficheros.databinding.ActivityMainBinding
 
-private lateinit var viewBinding: ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
+
+    private lateinit var viewBinding: ActivityMainBinding
+
+    private val preferencesName = "email_data"
+    private lateinit var sharedPreferences:SharedPreferences
+    private lateinit var preferencesEditor:SharedPreferences.Editor
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         viewBinding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(viewBinding.root)
 
-        val preferences = getSharedPreferences("email_data", Context.MODE_PRIVATE)
-        val editor = preferences.edit()
+        initPreferences()
+        initListeners()
+    }
 
-        val grabarButton = viewBinding.grabarButton
-        val recuperarButton = viewBinding.recuperarButton
+    private fun initPreferences() {
+        sharedPreferences = getSharedPreferences(preferencesName, MODE_PRIVATE)
+        preferencesEditor = sharedPreferences.edit()
+    }
 
+    private fun initListeners() {
         val emailEditT = viewBinding.emailEditT
         val datosEditT = viewBinding.datosEditT
 
-        grabarButton.setOnClickListener {
-
-            if (emailEditT.text.trim().isNotEmpty() && datosEditT.text.trim().isNotEmpty()) {
-                editor.putString(emailEditT.text.toString(), datosEditT.text.toString())
-                editor.apply()
-
-                showToast("Datos guardados")
-
-                emailEditT.setText("")
-                datosEditT.setText("")
-            }
+        viewBinding.grabarButton.setOnClickListener {
+            savePreferences(emailEditT, datosEditT, preferencesEditor)
         }
 
-        recuperarButton.setOnClickListener {
-            val data = preferences.getString(emailEditT.text.toString(), "")
+        viewBinding.recuperarButton.setOnClickListener {
+            recoverPreferences(sharedPreferences, emailEditT, datosEditT)
+        }
+    }
 
-            if (data != null) {
-                if (data.isEmpty()) {
-                    showToast("No existe datos asociado a dicho mail.")
-                } else {
-                    datosEditT.setText(data)
-                }
+    private fun recoverPreferences(
+        preferences: SharedPreferences,
+        keyField: EditText,
+        dataField: EditText
+    ) {
+        val data = preferences.getString(keyField.text.toString(), "")
+
+        if (data != null) {
+            if (data.isEmpty()) {
+                showToast("No existe datos asociado a dicho mail.")
+            } else {
+                dataField.setText(data)
             }
         }
     }
 
-    private fun showToast(message:String) {
-        Toast.makeText(this,message,Toast.LENGTH_LONG).show()
+    private fun savePreferences(
+        keyField: EditText,
+        dataField: EditText,
+        editor: SharedPreferences.Editor
+    ) {
+        if (keyField.text.trim().isNotEmpty() && dataField.text.trim().isNotEmpty()) {
+            editor.putString(keyField.text.toString(), dataField.text.toString())
+            editor.apply()
+            //editor.commit()
+
+            showToast("Datos guardados")
+
+            keyField.setText("")
+            dataField.setText("")
+        }
+    }
+
+    private fun showToast(message: String) {
+        Toast.makeText(this, message, Toast.LENGTH_LONG).show()
     }
 }
