@@ -5,4 +5,23 @@
     <string name="app_name_tv"><u>AndroidStudio</u> components.</string>
     <string name="app_version_tv">v1.0</string>
     <string name="developer_tv">By Peng You</string>
+    <string name="identification_hint">Identification number: </string>
+    <string name="name_hint">Name: </string>
+    <string name="surname_hint">Surname: </string>
+    <string name="gender_tv">Gender</string>
+    <string name="locality_tv">Locality</string>
+    <string name="male_rb">Male</string>
+    <string name="female_rb">Female</string>
+    <string name="other_rb">Other</string>
+    <string name="resident_cb">I am resident.</string>
+    <string name="confirm_button">Confirm</string>
+    <string-array name="localities">
+        <item>Gran Canaria</item>
+        <item>La Palma</item>
+        <item>El Hierro</item>
+        <item>La Gomera</item>
+        <item>Tenerife</item>
+        <item>Lanzarote</item>
+        <item>Fuerteventura</item>
+    </string-array>
 </resources>

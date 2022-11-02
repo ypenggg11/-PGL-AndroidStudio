@@ -5,6 +5,8 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ArrayAdapter
+import android.widget.Spinner
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -35,6 +37,16 @@ class Lobby : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_lobby, container, false)
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        val localitySpinner = view.findViewById<Spinner>(R.id.locationSpinner)
+
+        val arrayAdap = ArrayAdapter.createFromResource(view.context,R.array.localities, com.google.android.material.R.layout.support_simple_spinner_dropdown_item)
+        arrayAdap.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+        localitySpinner.adapter = arrayAdap
     }
 
     companion object {
