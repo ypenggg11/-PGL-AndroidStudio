@@ -20,21 +20,36 @@ class MainActivity : AppCompatActivity() {
         val grabarButton = viewBinding.grabarButton
         val recuperarButton = viewBinding.recuperarButton
 
-        grabarButton.setOnClickListener {
-            val emailEditT = viewBinding.emailEditT
-            val datosEditT = viewBinding.datosEditT
+        val emailEditT = viewBinding.emailEditT
+        val datosEditT = viewBinding.datosEditT
 
-            if (emailEditT.text.isNotEmpty()&&datosEditT.text.isNotEmpty()){
-                editor.putString(emailEditT.text.toString(),datosEditT.text.toString())
+        grabarButton.setOnClickListener {
+
+            if (emailEditT.text.trim().isNotEmpty() && datosEditT.text.trim().isNotEmpty()) {
+                editor.putString(emailEditT.text.toString(), datosEditT.text.toString())
                 editor.apply()
 
-                Toast.makeText(this,"Datos guardados",Toast.LENGTH_LONG).show()
+                showToast("Datos guardados")
 
                 emailEditT.setText("")
                 datosEditT.setText("")
             }
         }
 
+        recuperarButton.setOnClickListener {
+            val data = preferences.getString(emailEditT.text.toString(), "")
 
+            if (data != null) {
+                if (data.isEmpty()) {
+                    showToast("No existe datos asociado a dicho mail.")
+                } else {
+                    datosEditT.setText(data)
+                }
+            }
+        }
+    }
+
+    private fun showToast(message:String) {
+        Toast.makeText(this,message,Toast.LENGTH_LONG).show()
     }
 }
