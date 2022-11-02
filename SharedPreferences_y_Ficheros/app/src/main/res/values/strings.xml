@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">SharedPreferences_y_Ficheros</string>
-    <string name="email_et">Email:</string>
+    <string name="email_et_hint">Email:</string>
     <string name="grabar_button">Grabar</string>
     <string name="recuperar_button">Recuperar</string>
+    <string name="datos_et_hint">Datos a grabar/recuperar:</string>
 </resources>

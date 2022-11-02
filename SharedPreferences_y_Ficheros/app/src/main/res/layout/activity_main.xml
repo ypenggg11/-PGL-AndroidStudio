@@ -12,7 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:hint="@string/email_et"
+        android:hint="@string/email_et_hint"
         android:inputType="textEmailAddress" />
 
     <EditText
@@ -21,7 +21,7 @@
         android:layout_height="476dp"
         android:ems="10"
         android:gravity="start|top"
-        android:hint="Datos a grabar/recuperar:"
+        android:hint="@string/datos_et_hint"
         android:inputType="textMultiLine|textPersonName" />
 
     <LinearLayout
