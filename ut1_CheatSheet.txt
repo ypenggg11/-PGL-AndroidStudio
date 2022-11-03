@@ -61,7 +61,7 @@ En MainActivity u otra clase (permission.tipo de permiso)
 4.e.- Pasar de una Activity a otra + pasar datos a otra Activity
 (this@activityActual, otraActivity::class.java)
 
-->  val intent = Intent(this@MainActivity, Welcome::class.java)
+->  val intent = Intent(this@MainActivity, NombreDeOtraClase::class.java)
 ->  intent.putExtra("key", datoAPasar)
 ->  startActivity(intent)
 
@@ -187,10 +187,33 @@ y le pasa el objeto actual de nuestro dataClass, también añade un listener a n
 7.3.- Para recuperar preferencias (comprobar antes si no es null)
 -> val data = sharedPreferences.getString(keyEditText.text.toString(), "")
    dataTextField.setText(data)
+   
+7.4.- Localización del preferences
+-> data/data/com.example.nombre_del_package/shared_prefs
 
 *8.-[Ficheros]=======================================================================================================\\
 
-
+8.1.- Escribir en un fichero
+-> try { val file = OutputStreamWriter(openFileOutput(nombreFichero, Activity.MODE_PRIVATE))
+   file.write(dataField.text.toString())
+   file.flush()
+   file.close()
+   } catch (_: IOException) {}
+   
+8.2.- Verificar si existe el fichero
+-> if(fileList().contains(nombreFichero)){}
+   
+8.3.- Leer de un fichero 
+-> try { val fileBuffer = BufferedReader(InputStreamReader(openFileInput(nombreFichero)))
+   var line = fileBuffer.readLine()
+   val fileContent = StringBuilder()
+   while (line != null) {
+   fileContent.append(line + "\n")
+   line = fileBuffer.readLine()}
+   fileBuffer.close() } catch (_: IOException) {}
+   
+8.4.- Localización del fichero
+-> data/data/com.example.nombre_del_package/files
 
 EXTRA.- Listeners==============================================================================================================\\
 
