@@ -174,6 +174,23 @@ y le pasa el objeto actual de nuestro dataClass, también añade un listener a n
 6.13.- En caso de querer decorar nuestros items, usar:
 -> recyclerView.addItemDecoration(DividerItemDecoration(this,DividerItemDecoration.VERTICAL))
 
+*7.-[SharedPreferences]=======================================================================================================\\
+
+7.1.- Creamos nuestro SharedPreferences y su editor (almacenar/recuperar preferencias con clave-valor)
+-> val sharedPreferences = getSharedPreferences(preferencesName, MODE_PRIVATE)
+   val preferencesEditor = sharedPreferences.edit()
+   
+7.2.- Para guardar preferencias (comprobar antes los EditText, si son null, etc)
+-> preferencesEditor.putString(keyEditText.text.toString(),dataEditText.text.toString())
+   preferencesEditor.apply() / preferencesEditor.commit()
+   
+7.3.- Para recuperar preferencias (comprobar antes si no es null)
+-> val data = sharedPreferences.getString(keyEditText.text.toString(), "")
+   dataTextField.setText(data)
+
+*8.-[Ficheros]=======================================================================================================\\
+
+
 
 EXTRA.- Listeners==============================================================================================================\\
 
