@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Ficheros</string>
+    <string name="date_et_hint">Fecha: DD/MM/yyyy</string>
+    <string name="grabar_button">Grabar</string>
+    <string name="recuperar_button">Recuperar</string>
+    <string name="datos_et_hint">Datos a grabar/recuperar:</string>
+</resources>
