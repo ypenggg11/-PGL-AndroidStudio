@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">SQLite</string>
+    <string name="title_tv">SQLite Database</string>
+    <string name="team_id_hint">Team id: </string>
+    <string name="team_name_hint">Team name: </string>
+    <string name="num_titles_hint">Team number of titles: </string>
+    <string name="insert_button">Insert</string>
+    <string name="delete_button">Delete</string>
+    <string name="search_button">Search</string>
+    <string name="alter_button">Alter</string>
+</resources>
