@@ -2,14 +2,14 @@
 
 *1.-[FirstApp]=================================================================================================================\\
 
-1.a.- Buscar componente por ID (forma 1)
+1.1.- Buscar componente por ID (forma 1)
 Acceder a su texto -> al final '.text', funciona como getter y setter (get -> .toString())
 
 ->  findViewById<TextView>(R.id.textViewSubString)
 
 *2.-[ViewBinding_ACT4]=========================================================================================================\\
 
-2.a.- Buscar componente por ID (forma 2)
+2.1.- Buscar componente por ID (forma 2)
 Añadir en 'build.gradle' -> android{ 'aquí' } -> viewBinding{ enabled = true }
 
 ->  private lateinit var viewBinding: ActivityMainBinding (fuera de onCreate())
@@ -17,11 +17,11 @@ Añadir en 'build.gradle' -> android{ 'aquí' } -> viewBinding{ enabled = true }
 ->  setContentView(viewBinding.root)
 ->  val componente = viewBinding.idDelComponente
 
-2.b.- String-array en strings.xml para Spinners
+2.2.- String-array en strings.xml para Spinners
 
 ->  <string-array name="nombre"><item>dato</item><item>...</item></string-array>
 
-2.c.- Cargar string-array desde strings.xml al spinner mediante código
+2.3.- Cargar string-array desde strings.xml al spinner mediante código
 Opción gráfico: Spinner -> Common Attributes -> Entries -> @array/nombreDelString-array
 
 ->  val arrayAdap = ArrayAdapter.createFromResource(this,R.array.nombreDelString-array,
@@ -29,67 +29,72 @@ Opción gráfico: Spinner -> Common Attributes -> Entries -> @array/nombreDelStr
 ->  arrayAdap.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
 ->  idSpinner.adapter = arrayAdap
 
+2.4.- Cargar un adaptador a un Spinner con un ArrayList
+
+-> val arrayAdapter =ArrayAdapter(this, R.layout.support_simple_spinner_dropdown_item, nombre_ArrayList)
+   nombre_spinner.adapter = arrayAdapter
+
 *3.-[ZonaEstadio_ACT3]=========================================================================================================\\
 
-3.a.- Alertas (getText funciona con HTML, getString NO)
+3.1.- Alertas (getText funciona con HTML, getString NO)
 
 ->  val alert = AlertDialog.Builder(this).create()
 ->  alert.setMessage(getText(R.string.etiquetaDelStringsXML)).show()
 
 *4.-[LoginApp]=================================================================================================================\\
 
-4.a.- Mensaje Toast
+4.1.- Mensaje Toast
 
 ->  Toast.makeText(this,"Mensaje a mostrar",Toast.LENGTH_LONG).show()
 
-4.b.- Usar permisos
+4.2.- Usar permisos
 //Añadir en AndroidManifest.xml: (name="tipo de permiso")
 
 ->  <uses-permission android:name="android.permission.CAMERA"/>
 
-4.c.- Verifica los permisos (boolean)
+4.3.- Verifica los permisos (boolean)
 En MainActivity u otra clase (permission.tipo de permiso)
 this||applicationContext||activity
 
 ->  ActivityCompat.checkSelfPermission(this,android.Manifest.permission.CAMERA)==PackageManager.PERMISSION_GRANTED
 
-4.d.- Solicita permisos
+4.4.- Solicita permisos
 En MainActivity u otra clase (permission.tipo de permiso)
 
 ->  ActivityCompat.requestPermissions(this, arrayOf(android.Manifest.permission.CAMERA),1)
 
-4.e.- Pasar de una Activity a otra + pasar datos a otra Activity
+4.5.- Pasar de una Activity a otra + pasar datos a otra Activity
 (this@activityActual, otraActivity::class.java)
 
 ->  val intent = Intent(this@MainActivity, NombreDeOtraClase::class.java)
 ->  intent.putExtra("key", datoAPasar)
 ->  startActivity(intent)
 
-4.f.- Obtener datos en una Activity pasados desde otra
+4.6.- Obtener datos en una Activity pasados desde otra
 
 ->  val bundle = intent.extras
 ->  val datoPasado:String? = bundle?.getString("key")
 
-4.g.- Salir del Activity
+4.7.- Salir del Activity
 
 ->  finish()
 
 *5.-[Fragments]================================================================================================================\\
 
-5.a.- Crear instancia de nuestro Fragment + pasarle argumentos
+5.1.- Crear instancia de nuestro Fragment + pasarle argumentos
 
 ->  val frag = NombreDeNuestraClaseFragment()
 ->  val datosAPasar = Bundle()
 ->  datosAPasar.putString("key", dato) (Bundle trabaja con HashMaps)
 ->  frag.arguments = datosAPasar
 
-5.b.- Cambiar el Fragment visible del FrameLayout (los fragments van dentro de frameLayouts)
+5.2.- Cambiar el Fragment visible del FrameLayout (los fragments van dentro de frameLayouts)
 
 ->  val fragment = supportFragmentManager.beginTransaction()
 ->  fragment.replace(R.id.NombreDelFrameLayout, frag) (val frag en 5.a.-)
 ->  fragment.commit()
 
-5.c.- Usar los argumentos que se pasaron del Activity al Fragment
+5.3.- Usar los argumentos que se pasaron del Activity al Fragment
 Cambiar -> Arriba del todo -> private const val ARG_PARAM... = "key"
 Cambiar -> Poco más abajo -> private var nombreDato: String? = null
 Cambiar -> OnCreate() -> nombreDato = it.getString(ARG_PARAM...)
@@ -97,7 +102,7 @@ Cambiar -> OnCreate() -> nombreDato = it.getString(ARG_PARAM...)
 
 -> view.findViewById<Tipo>(R.id.IdComponente).text = nombreDato
 
-5.d.- Usar findViewById en Fragments
+5.4.- Usar findViewById en Fragments
 (onCreateView() = usar solo para crear la vista, .findViewById usar en onViewCreated())
 
 ->  val fragView = inflater.inflate(R.layout.IdDelFragmento, container, false)
@@ -118,15 +123,17 @@ Pasos para implementar un RecyclerView:
 
 6.1.- Añadir en 'build.gradle' -> implementation 'androidx.recyclerview:recyclerview:1.2.1'
 
-6.2.- Añadir en el componente en algun .xml -> <androidx.recyclerview.widget.RecyclerView .../>
+6.2.- Añadir en algun .xml de res/layout -> <androidx.recyclerview.widget.RecyclerView .../>
 
 6.3.- Crear un fichero listitem_'nombre'.xml en 'res/layout' que definirá el View de cada item dentro
 	de nuestro RecyclerView.
 
 6.4.- Creamos una data class con los posibles datos de cada uno de nuestros items.
+
 -> data class Nombre(val dato1: Tipo, val dato2: Tipo...)
 
 6.5.- Creamos nuestra clase ViewHolder que hereda de Recycler.ViewHolder() y que contiene una funcion bind().
+
 -> class nombreViewHolder(val item: View): RecyclerView.ViewHolder(item) {
 	fun bindDataClass(dataClass: DataClass) {
 		'Asignar valores como: texto, a los componentes mediante los id de item -> item.findViewById...'
@@ -134,12 +141,14 @@ Pasos para implementar un RecyclerView:
 }
 
 6.6.- Creamos nuestra clase Adapter, que hereda de Recycler.Adapter<NuestroViewHolder>(), contiene 3 funciones override.
+
 -> class nombreAdapter(private val datos: Array<DataClass>, private val clickListener: (DataClass) -> Unit): 
 RecyclerView.Adapter<NuestroViewHolder>() [clickListener no es obligatorio]
 
 IMPLEMENTAMOS LAS FUNCIONES OVERRIDE
 
 6.7- Implementamos fun -> onCreateViewHolder [Construye un View llamado item a partir de nuestro .xml]
+
 -> override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): NuestroViewHolder {
         val item = LayoutInflater.from(parent.context).inflate(R.layout.listitem_nombre,parent,false) as LinearLayout
         return NuestroViewHolder(item)
@@ -148,6 +157,7 @@ IMPLEMENTAMOS LAS FUNCIONES OVERRIDE
 6.8.- Implementamos fun onBindViewHolder 
 [Llama al método bind de nuestro ViewHolder por cada objeto dentro de nuestra lista datos, 
 y le pasa el objeto actual de nuestro dataClass, también añade un listener a nuestro item en caso necesario]
+
 -> override fun onBindViewHolder(holder: NuestroViewHolder, position: Int) {
         val dataClass = datos[position]
         holder.bindDataClass(dataClass)
@@ -156,44 +166,54 @@ y le pasa el objeto actual de nuestro dataClass, también añade un listener a n
     }
 
 6.9.- Implementamos fun getItemCount [Devuelve el tamaño actual de nuestra lista de objetos DataClass]
+
 -> override fun getItemCount(): Int = datos.size
 
 6.10.- MainActivity.kt -> buscamos nuestro componente RecyclerView y creamos un array de nuestro DataClass
+
 -> recyclerView = viewBinding.recyclerView
 -> val datos = Array('size') {it -> DataClass('parametros')}
 
 6.11.- Asignamos un layout (el formato que queramos mostrar) a nuestro RecyclerView
+
 -> recyclerView.layoutManager = LinearLayoutManager(this,LinearLayoutManager.VERTICAL,false)
 
 6.12.- Creamos la instancia de nuestra Clase Adapter y se lo asignamos al RecyclerView
+
 -> val adaptador = nombreAdapter(datos) {
            'código a ejecutar del listener'
         }
 -> recyclerView.adapter = adaptador
 
 6.13.- En caso de querer decorar nuestros items, usar:
+
 -> recyclerView.addItemDecoration(DividerItemDecoration(this,DividerItemDecoration.VERTICAL))
 
 *7.-[SharedPreferences]=======================================================================================================\\
 
 7.1.- Creamos nuestro SharedPreferences y su editor (almacenar/recuperar preferencias con clave-valor)
+
 -> val sharedPreferences = getSharedPreferences(preferencesName, MODE_PRIVATE)
    val preferencesEditor = sharedPreferences.edit()
    
 7.2.- Para guardar preferencias (comprobar antes los EditText, si son null, etc)
+
 -> preferencesEditor.putString(keyEditText.text.toString(),dataEditText.text.toString())
    preferencesEditor.apply() / preferencesEditor.commit()
    
 7.3.- Para recuperar preferencias (comprobar antes si no es null)
+
 -> val data = sharedPreferences.getString(keyEditText.text.toString(), "")
    dataTextField.setText(data)
    
 7.4.- Localización del preferences
+
 -> data/data/com.example.nombre_del_package/shared_prefs
 
-*8.-[Ficheros]=======================================================================================================\\
+*8.-[Ficheros]================================================================================================================\\
 
 8.1.- Escribir en un fichero
+
 -> try { val file = OutputStreamWriter(openFileOutput(nombreFichero, Activity.MODE_PRIVATE))
    file.write(dataField.text.toString())
    file.flush()
@@ -201,9 +221,11 @@ y le pasa el objeto actual de nuestro dataClass, también añade un listener a n
    } catch (_: IOException) {}
    
 8.2.- Verificar si existe el fichero
+
 -> if(fileList().contains(nombreFichero)){}
    
 8.3.- Leer de un fichero 
+
 -> try { val fileBuffer = BufferedReader(InputStreamReader(openFileInput(nombreFichero)))
    var line = fileBuffer.readLine()
    val fileContent = StringBuilder()
@@ -213,7 +235,60 @@ y le pasa el objeto actual de nuestro dataClass, también añade un listener a n
    fileBuffer.close() } catch (_: IOException) {}
    
 8.4.- Localización del fichero
+
 -> data/data/com.example.nombre_del_package/files
+
+*9.-[SQLite]==================================================================================================================\\
+
+9.1.- Crear nuestra clase SQLiteOpenHelper para la bbdd embebida
+
+-> class ddbb_nameSQLiteOpenHelper(context: Context,name: String,factory: SQLiteDatabase.CursorFactory?,version: Int) 
+	: SQLiteOpenHelper(context, name, factory, version) {
+    override fun onCreate(p0: SQLiteDatabase?) {
+        //En caso de que no exista, crea una tabla nueva.
+        p0!!.execSQL("CREATE TABLE table_name(table_id int primary key,name text)")}
+    override fun onUpgrade(p0: SQLiteDatabase?, p1: Int, p2: Int) {}}
+
+9.2.- Conectarse a la bbdd y hacer que podamos modificar su contenido
+
+-> val ddbbName = ddbb_nameSQLiteOpenHelper(this, "ddbb_name", null, 1)
+   val dataBase = ddbbName.writableDatabase
+
+UNA VEZ CONECTADO CON EL PASO 9.2.-
+
+9.3.- Insertar un registro
+
+-> val row = ContentValues()
+   row.put("table_id", dato_string/int)...
+   dataBase.insert("nombre_tabla", null, row)
+
+9.4.- Buscar un registro
+
+-> val row = dataBase.rawQuery("SELECT ... FROM ... WHERE id=${...}", null)
+	if (row.moveToFirst()) {
+  		//Recuperó ese registro
+	} else {//No recuperó nada}
+
+9.5.- Buscar muchos registros
+
+-> val row = dataBase.rawQuery("SELECT ... FROM ...", null)
+   while (rows.moveToNext()) {rows.getString(num_columna(empieza en 0))...}
+
+9.6.- Modificar un registro
+
+-> val rowData = ContentValues()
+   row.put("columna_a_modif", nuevo_dato_string/int)...
+   val rowUpdate = dataBase.update("nombre_tabla",rowData,"id=${...}",null)
+   if (rowUpdate == 1) {//Update correcto} else {//Update falló}
+
+9.7.- Eliminar un registro
+
+-> val rowDelete = dataBase.delete("nombre_tabla", "id=${...}", null)
+   if (rowDelete == 1) {//Eliminado} else {//Falló}
+
+9.8.- Cerrar la bbdd
+
+-> dataBase.close()
 
 EXTRA.- Listeners==============================================================================================================\\
 
