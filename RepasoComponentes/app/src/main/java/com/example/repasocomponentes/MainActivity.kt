@@ -14,6 +14,13 @@ class MainActivity : AppCompatActivity() {
         viewBinding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(viewBinding.root)
 
+        val lobbyFrag = Lobby()
+        changeFragment(lobbyFrag)
+
+        initListeners()
+    }
+
+    private fun initListeners() {
         val lobbyButton = viewBinding.lobbyButton
         val aboutMeButton = viewBinding.aboutMeButton
 

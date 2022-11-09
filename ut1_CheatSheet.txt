@@ -90,15 +90,16 @@ En MainActivity u otra clase (permission.tipo de permiso)
 
 5.2.- Cambiar el Fragment visible del FrameLayout (los fragments van dentro de frameLayouts)
 
-->  val fragment = supportFragmentManager.beginTransaction()
-->  fragment.replace(R.id.NombreDelFrameLayout, frag) (val frag en 5.a.-)
-->  fragment.commit()
+-> private fun changeFragment(frag: Fragment) {
+   val currentFragment = supportFragmentManager.beginTransaction()
+   currentFragment.replace(R.id.frameLayout, frag)
+   currentFragment.commit()}
 
 5.3.- Usar los argumentos que se pasaron del Activity al Fragment
 Cambiar -> Arriba del todo -> private const val ARG_PARAM... = "key"
 Cambiar -> Poco más abajo -> private var nombreDato: String? = null
 Cambiar -> OnCreate() -> nombreDato = it.getString(ARG_PARAM...)
-(onViewCreated() = ejecuta su contenido una vez el onCreatedView() esté creado,para evitar errores)
+(onViewCreated() = ejecuta su contenido una vez el onCreateView() esté creado,para evitar errores)
 
 -> view.findViewById<Tipo>(R.id.IdComponente).text = nombreDato
 
