@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/teal_200"
+    android:orientation="vertical"
+    android:paddingLeft="25dp"
+    android:paddingRight="25dp"
+    tools:context=".DataBaseActivity">
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="50dp" />
+
+    <EditText
+        android:id="@+id/codOficinaEditT"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:fontFamily="@font/roboto_light"
+        android:hint="@string/cod_oficina"
+        android:inputType="number"
+        android:textColor="@color/black"
+        android:textColorHint="@color/white"
+        android:textSize="22sp" />
+
+    <EditText
+        android:id="@+id/direccionEditT"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:fontFamily="@font/roboto_light"
+        android:hint="@string/direccion"
+        android:inputType="textPersonName"
+        android:textColor="@color/black"
+        android:textColorHint="@color/white"
+        android:textSize="22sp" />
+
+    <EditText
+        android:id="@+id/localidadEditT"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:fontFamily="@font/roboto_light"
+        android:hint="@string/localidad"
+        android:inputType="textPersonName"
+        android:textColor="@color/black"
+        android:textColorHint="@color/white"
+        android:textSize="22sp" />
+
+    <EditText
+        android:id="@+id/telefonoEditT"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:fontFamily="@font/roboto_light"
+        android:hint="@string/telefono"
+        android:inputType="phone"
+        android:textColor="@color/black"
+        android:textColorHint="@color/white"
+        android:textSize="22sp" />
+
+    <Button
+        android:id="@+id/insertButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#009688"
+        android:fontFamily="@font/roboto_light"
+        android:text="@string/insert_button"
+        android:textColor="@color/white"
+        android:textSize="18sp" />
+
+    <Button
+        android:id="@+id/deleteButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#009688"
+        android:fontFamily="@font/roboto_light"
+        android:text="@string/delete_button"
+        android:textColor="@color/white"
+        android:textSize="18sp" />
+
+    <Button
+        android:id="@+id/showLocalidadesButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#009688"
+        android:fontFamily="@font/roboto_light"
+        android:text="@string/show_button"
+        android:textColor="@color/white"
+        android:textSize="18sp" />
+
+    <Spinner
+        android:id="@+id/localidadesSpinner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="48dp" />
+
+    <Button
+        android:id="@+id/backButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#009688"
+        android:fontFamily="@font/roboto_light"
+        android:text="@string/volver_button"
+        android:textColor="@color/white"
+        android:textSize="18sp" />
+
+</LinearLayout>
