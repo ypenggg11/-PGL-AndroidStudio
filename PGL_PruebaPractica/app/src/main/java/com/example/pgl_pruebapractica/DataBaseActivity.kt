@@ -1,12 +1,12 @@
 package com.example.pgl_pruebapractica
 
-import android.annotation.SuppressLint
 import android.content.ContentValues
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.*
+import com.example.pgl_pruebapractica.databinding.ActivityDataBaseBinding
 
 class DataBaseActivity : AppCompatActivity() {
 
@@ -15,9 +15,12 @@ class DataBaseActivity : AppCompatActivity() {
     private lateinit var localidadEditT:EditText
     private lateinit var telefonoEditT:EditText
 
+    private lateinit var viewBinding: ActivityDataBaseBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_data_base)
+        viewBinding = ActivityDataBaseBinding.inflate(layoutInflater)
+        setContentView(viewBinding.root)
 
         initViews()
 
