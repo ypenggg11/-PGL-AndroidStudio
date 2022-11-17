@@ -22,8 +22,8 @@ class WebViewActivity : AppCompatActivity() {
         viewBinding.webView.loadUrl(webUrl!!)
 
         viewBinding.backButton.setOnClickListener {
-            val webIntent = Intent(this@WebViewActivity,MainActivity::class.java)
-            startActivity(webIntent)
+            val mainIntent = Intent(this@WebViewActivity,MainActivity::class.java)
+            startActivity(mainIntent)
 
             this.finish()
         }

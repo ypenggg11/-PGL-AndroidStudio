@@ -14,7 +14,7 @@ import java.util.regex.Pattern
 
 class MainActivity : AppCompatActivity() {
 
-    //TODO desde el apartado 14.-
+    //TODO desde el apartado 16.-
     private lateinit var viewBinding: ActivityMainBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -48,10 +48,15 @@ class MainActivity : AppCompatActivity() {
                 showMessage("Inserte un url")
             }
         }
+
+        viewBinding.soundPlayButton.setOnClickListener {
+            val soundPlayerIntent = Intent(this@MainActivity,SoundPlayerActivity::class.java)
+            startActivity(soundPlayerIntent)
+            this.finish()
+        }
     }
 
     private fun checkUrl(url:String): Boolean {
-
         return Pattern.matches("^(https|http)://([a-zA-Z0-9](\\.)?(/)?)+",url)
     }
 
