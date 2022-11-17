@@ -5,4 +5,5 @@
     <string name="web_text_et">Introduce la página:</string>
     <string name="nav_button">Navegador</string>
     <string name="play_sound_button">Reproductor sonido</string>
+    <string name="back_button">Back</string>
 </resources>
