@@ -14,7 +14,7 @@ import java.util.regex.Pattern
 
 class MainActivity : AppCompatActivity() {
 
-    //TODO desde el apartado 16.-
+    //TODO Hacer el código modular + comprobar funcionamiento
     private lateinit var viewBinding: ActivityMainBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -54,6 +54,8 @@ class MainActivity : AppCompatActivity() {
             startActivity(soundPlayerIntent)
             this.finish()
         }
+
+
     }
 
     private fun checkUrl(url:String): Boolean {

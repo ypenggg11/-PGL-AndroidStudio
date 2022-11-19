@@ -8,6 +8,53 @@
     android:orientation="vertical"
     tools:context=".SoundPlayerActivity">
 
+    <TextView
+        android:id="@+id/soundPlayerTextV"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/secondary_background"
+        android:text="@string/sound_player"
+        android:textAlignment="center"
+        android:textColor="#FFFFFF"
+        android:textSize="24sp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageButton
+            android:id="@+id/pauseButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/shadow_primary"
+            app:srcCompat="@android:drawable/ic_media_pause" />
+
+        <Space
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="2" />
+
+        <ImageButton
+            android:id="@+id/playButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/shadow_primary"
+            app:srcCompat="@android:drawable/ic_media_play" />
+
+        <Space
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="2" />
+
+        <ImageButton
+            android:id="@+id/stopButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:backgroundTint="@color/shadow_primary"
+            app:srcCompat="@android:drawable/picture_frame" />
+    </LinearLayout>
+
     <Button
         android:id="@+id/back2Button"
         android:layout_width="match_parent"
@@ -16,4 +63,5 @@
         android:fontFamily="@font/roboto"
         android:text="@string/back_button"
         android:textColor="@color/font" />
+
 </LinearLayout>
