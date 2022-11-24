@@ -14,7 +14,7 @@ import java.util.regex.Pattern
 
 class MainActivity : AppCompatActivity() {
 
-    //TODO Hacer el código modular + comprobar funcionamiento
+    //TODO Hacer el código modular y entender el funcionamiento.
     private lateinit var viewBinding: ActivityMainBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {

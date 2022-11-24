@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">FotoVideo</string>
+    <string name="title">Foto y Video</string>
+    <string name="title_photo">Fotos</string>
+    <string name="take_picture">Hacer foto</string>
+    <string name="select_image">Selecciona imagen</string>
+    <string name="back">Atrás</string>
+</resources>
