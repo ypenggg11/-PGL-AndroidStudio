@@ -7,8 +7,6 @@ import com.example.fotovideo.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
 
-    //TODO Desde el apartado 14.-
-
     private lateinit var viewBinding: ActivityMainBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -19,6 +17,13 @@ class MainActivity : AppCompatActivity() {
         viewBinding.photoB.setOnClickListener {
             val photoIntent = Intent(this@MainActivity, PhotoActivity::class.java)
             startActivity(photoIntent)
+
+            this.finish()
+        }
+
+        viewBinding.playB.setOnClickListener {
+            val videoIntent = Intent(this@MainActivity,VideoActivity::class.java)
+            startActivity(videoIntent)
 
             this.finish()
         }

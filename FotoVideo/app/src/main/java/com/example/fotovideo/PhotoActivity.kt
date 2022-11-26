@@ -44,7 +44,7 @@ class PhotoActivity : AppCompatActivity() {
                 ) == PackageManager.PERMISSION_GRANTED
             ) {
                 showMessage("La App tiene los permisos para la camara")
-                takePhoto();
+                takePhoto()
             } else {
                 ActivityCompat.requestPermissions(
                     this@PhotoActivity, arrayOf(android.Manifest.permission.CAMERA),
