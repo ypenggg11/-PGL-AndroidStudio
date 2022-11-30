@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/sinHilosItem"
+        android:title="@string/sin_hilos_item"/>
+    <item
+        android:id="@+id/threadItem"
+        android:title="@string/thread_item"/>
+    <item
+        android:id="@+id/asyncTaskItem"
+        android:title="@string/async_task_item"/>
+    <item
+        android:id="@+id/corrutinasItem"
+        android:title="@string/corrutinas_item"/>
+</menu>

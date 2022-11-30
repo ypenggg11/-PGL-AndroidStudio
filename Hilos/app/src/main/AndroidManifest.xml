@@ -12,6 +12,11 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Hilos"
         tools:targetApi="31">
+        <service
+            android:name=".PlayBgMusic"
+            android:enabled="true"
+            android:exported="true"></service>
+
         <activity
             android:name=".MainActivity"
             android:exported="true">
@@ -25,6 +30,10 @@
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
+
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
     </application>
 
 </manifest>
