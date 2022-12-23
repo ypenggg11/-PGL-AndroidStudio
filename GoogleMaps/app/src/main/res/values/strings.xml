@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">GoogleMaps</string>
+    <string name="title">Google Maps</string>
+    <string name="coordinate1">Coordenada 1</string>
+    <string name="coordinate2">Coordenada 2</string>
+    <string name="my_map_btn">Mi mapa</string>
+</resources>
