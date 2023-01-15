@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">RepasoUT3</string>
+    <string name="menu_camera">Camera</string>
+    <string name="menu_internet">Internet</string>
+    <string name="menu_map">Map</string>
+    <string name="menu_thread">Threads</string>
+    <string name="menu_firestore">Firestore DDBB</string>
+    <string name="main_title">Repaso UT3</string>
+    <string name="image_title">Sample image</string>
+    <string name="camera_button">Take photo</string>
+    <string name="url_hint">URL:</string>
+    <string name="search_button">Search url</string>
+</resources>
