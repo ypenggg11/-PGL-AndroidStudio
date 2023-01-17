@@ -10,4 +10,5 @@
     <color name="bg">#1E1E1E</color>
     <color name="primary">#01A55F</color>
     <color name="secondary">#00C587</color>
+    <color name="hint">#B8B8B8</color>
 </resources>

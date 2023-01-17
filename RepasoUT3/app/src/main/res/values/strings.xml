@@ -10,4 +10,7 @@
     <string name="camera_button">Take photo</string>
     <string name="url_hint">URL:</string>
     <string name="search_button">Search url</string>
+    <string name="timer_et_hint">Timer seconds:</string>
+    <string name="timer_btn">Start timer</string>
+    <string name="init_timer_value">0</string>
 </resources>

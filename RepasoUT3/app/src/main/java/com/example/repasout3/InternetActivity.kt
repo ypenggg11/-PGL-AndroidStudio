@@ -10,16 +10,13 @@ import android.net.NetworkCapabilities.NET_CAPABILITY_INTERNET
 import android.os.Build
 import android.os.Bundle
 import android.view.MenuItem
-import android.webkit.WebChromeClient
-import android.webkit.WebSettings
-import android.webkit.WebSettings.PluginState
 import android.webkit.WebViewClient
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.repasout3.databinding.ActivityInternetBinding
 import java.util.regex.Pattern
 
-
+/* USED: SHOW URL INTO A WEB-VIEW AND CHECK/ADD PERMISSIONS */
 class InternetActivity : AppCompatActivity() {
 
     private lateinit var viewBinding: ActivityInternetBinding
@@ -33,6 +30,18 @@ class InternetActivity : AppCompatActivity() {
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
         initListener()
+    }
+
+    // Action bar back button click listener
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
+            R.id.home -> {
+                startActivity(Intent(this@InternetActivity, MainActivity::class.java))
+                finish()
+                return true
+            }
+        }
+        return super.onOptionsItemSelected(item)
     }
 
     private fun initListener() {
@@ -57,18 +66,6 @@ class InternetActivity : AppCompatActivity() {
                 showMessage("You're not connected")
             }
         }
-    }
-
-    // Action bar back button click listener
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        when (item.itemId) {
-            R.id.home -> {
-                startActivity(Intent(this@InternetActivity, MainActivity::class.java))
-                finish()
-                return true
-            }
-        }
-        return super.onOptionsItemSelected(item)
     }
 
     /* Checks our network connectivity, depending on the VERSION,

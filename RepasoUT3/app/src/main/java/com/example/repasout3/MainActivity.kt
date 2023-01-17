@@ -40,15 +40,20 @@ class MainActivity : AppCompatActivity() {
             }
 
             R.id.map -> {
-                //TODO
+                startActivity(Intent(this@MainActivity , MapsActivity::class.java))
+                finish()
             }
 
             R.id.thread -> {
-                //TODO
+                //TODO Map not working
+                startActivity(Intent(this@MainActivity , ThreadActivity::class.java))
+                finish()
             }
 
             R.id.firestore -> {
-                //TODO
+                //TODO Not implemented yet
+                startActivity(Intent(this@MainActivity , FireBaseActivity::class.java))
+                finish()
             }
         }
 

@@ -15,7 +15,7 @@ import androidx.core.app.ActivityCompat
 import com.example.repasout3.databinding.ActivityCamera2Binding
 
 
-/* USED: CAMERA FOR TAKING A PICTURE (VIDEO USED IN ANOTHER PROJECT) */
+/* USED: CAMERA FOR TAKING A PICTURE */
 class CameraActivity : AppCompatActivity() {
 
     private lateinit var viewBinding: ActivityCamera2Binding
