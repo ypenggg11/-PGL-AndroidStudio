@@ -27,7 +27,6 @@ class MainActivity : AppCompatActivity() {
 
     /* Menu click listener */
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-
         when (item.itemId) {
             R.id.camera -> {
                 startActivity(Intent(this@MainActivity , CameraActivity::class.java))
@@ -45,13 +44,11 @@ class MainActivity : AppCompatActivity() {
             }
 
             R.id.thread -> {
-                //TODO Map not working
                 startActivity(Intent(this@MainActivity , ThreadActivity::class.java))
                 finish()
             }
 
             R.id.firestore -> {
-                //TODO Not implemented yet
                 startActivity(Intent(this@MainActivity , FireBaseActivity::class.java))
                 finish()
             }
