@@ -49,7 +49,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun login() {
         if (emailEt.text.isNotBlank() && passwordEt.text.isNotBlank()) {
-            //TODO Check email and password format + error controls
+
             email = emailEt.text.toString()
             password = passwordEt.text.toString()
 
@@ -68,7 +68,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun register() {
         if (emailEt.text.isNotBlank() && passwordEt.text.isNotBlank()) {
-            //TODO Check email and password format + error controls -> maybe send email for verification?
+
             email = emailEt.text.toString()
             password = passwordEt.text.toString()
 
