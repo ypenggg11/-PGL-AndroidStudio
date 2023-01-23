@@ -23,6 +23,8 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var userAmount: TextView
     private lateinit var registeredTv: TextView
+    private lateinit var emailTv: TextView
+    private lateinit var passwdTv: TextView
 
     /* Data declarations */
     private lateinit var email: String
@@ -52,15 +54,18 @@ class MainActivity : AppCompatActivity() {
         authentication = FirebaseAuth.getInstance()
         emailEt = viewBinding.emailEt
         passwordEt = viewBinding.passwdEt
-
         userAmount = viewBinding.userAmountTv
+
         registeredTv = viewBinding.registeredTv
+        emailTv = viewBinding.emailTv
+        passwdTv = viewBinding.passwdTv
+
+        registeredTv.isVisible = false
     }
 
     private fun initListeners() {
 
         /*
-
 
         /* LOGIN */
         viewBinding.loginBtn.setOnClickListener {
@@ -82,7 +87,6 @@ class MainActivity : AppCompatActivity() {
 
             email = emailEt.text.toString()
             password = passwordEt.text.toString()
-
             authentication.signInWithEmailAndPassword(email, password)
                 .addOnCompleteListener(this) {
                     if (it.isSuccessful) {
@@ -110,9 +114,12 @@ class MainActivity : AppCompatActivity() {
                     } else {
                         increaseUserAmount()
 
+                        viewBinding.registerBtn.isVisible = false
                         emailEt.isVisible = false
                         passwordEt.isVisible = false
-                        viewBinding.registerBtn.isVisible = false
+                        emailTv.isVisible = false
+                        passwdTv.isVisible = false
+
                         registeredTv.isVisible = true
                     }
                 }

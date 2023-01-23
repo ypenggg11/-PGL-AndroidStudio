@@ -1,4 +1,9 @@
 <resources>
     <string name="app_name">Autenticacion</string>
     <string name="send_btn">Send code</string>
+    <string name="registered">You are already &#xA; registered!</string>
+    <string name="Email">Email</string>
+    <string name="Password">Password</string>
+    <string name="Title">XING Pre-register</string>
+    <string name="user_amount">Number of pre-registered players: </string>
 </resources>
