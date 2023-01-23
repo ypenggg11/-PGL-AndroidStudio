@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Autenticacion</string>
+    <string name="send_btn">Send code</string>
 </resources>
