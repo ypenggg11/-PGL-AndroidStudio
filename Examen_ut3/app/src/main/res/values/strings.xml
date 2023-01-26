@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">Examen_ut3</string>
+    <string name="navegador_item">Navegador</string>
+    <string name="hilos_item">Hilos</string>
+    <string name="firestore_item">Firestore</string>
+    <string name="url_hint">URL:</string>
+    <string name="search_button">Buscar</string>
+    <string name="title_primos">Números primos</string>
+    <string name="inicial_hint">Inicio:</string>
+    <string name="final_hint">Final:</string>
+    <string name="calcular_btn">Calcular</string>
+    <string name="db_title">Oficinas</string>
+    <string name="db_codOfic">Codigo oficina:</string>
+    <string name="db_name">Nombre:</string>
+    <string name="db_direccion">Direccion:</string>
+    <string name="db_localidad">Localidad:</string>
+    <string name="db_insert">Insertar</string>
+    <string name="db_search">Buscar</string>
+    <string name="db_update">Actulizar</string>
+    <string name="db_delete">Eliminar</string>
+</resources>

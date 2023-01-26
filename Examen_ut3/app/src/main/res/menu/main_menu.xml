@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/navegador_item"
+        android:title="@string/navegador_item"/>
+    <item
+        android:id="@+id/thread_item"
+        android:title="@string/hilos_item"/>
+    <item
+        android:id="@+id/firebase_item"
+        android:title="@string/firestore_item"/>
+</menu>
